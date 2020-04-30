@@ -20,6 +20,7 @@ L.Control.SliderControl = L.Control.extend({
         popupOptions: {},
         popupContent: '',
         showAllPopups: true,
+        showPopups: true,
     },
 
     initialize: function (options) {
@@ -211,7 +212,9 @@ L.Control.SliderControl = L.Control.extend({
                         }
                     }
 
-                    that._openPopups(markers);
+                    if(_options.showPopups) {
+                        that._openPopups(markers);
+                    }
                     that.fire('rangechanged',{
                         markers: markers,
                     });
@@ -252,7 +255,9 @@ L.Control.SliderControl = L.Control.extend({
             markers.push(_options.markers[i]);
             _options.map.addLayer(_options.markers[i]);
         }
-        this._openPopups(markers);
+        if(_options.showPopups) {
+            this._openPopups(markers);
+        }
         this.fire('rangechanged',{
             markers: markers,
         });

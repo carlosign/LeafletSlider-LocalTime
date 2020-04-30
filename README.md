@@ -66,6 +66,7 @@ The layers must have the following structure:
 |popupContent| ' ' | Custom popup content if marker has no popup|
 |popupOptions| {} | Popup options for markers with no default popup [popup-options](https://leafletjs.com/reference-1.6.0.html#popup-l-popup)|
 |showAllPopups| true | To show all popups, instead of one. Same as popup option "autoClose: false"|
+|showPopups| true | To open popups of the markers|
 
 
 Add options on creating the control
