@@ -93,12 +93,18 @@ L.Control.SliderControl = L.Control.extend({
                 }
             }
 
+            var that = this;
             templayers.forEach(function (layer){
-                options.markers[index_temp] = layer;
 
-                if(layer._popup){
-                    options.markers[index_temp]._orgpopup = layer._popup;
+
+                if(layer instanceof L.LayerGroup) {
+                    layer.getLayers().forEach(function (l) {
+                        l = that._setPopupProperty(l);
+                    });
+                }else{
+                    layer = that._setPopupProperty(layer);
                 }
+                options.markers[index_temp] = layer;
 
                 ++index_temp;
             });
@@ -293,24 +299,36 @@ L.Control.SliderControl = L.Control.extend({
         return this;
     },
 
+    _setPopupProperty: function(marker){
+        if (marker._popup) {
+            marker._orgpopup = marker._popup;
+        }
+        return marker;
+    },
+
     _openPopups: function(markers) {
         var options = this.options;
+        var that = this;
         markers.forEach(function (marker) {
-            if(marker._orgpopup){
-                marker._popup =  marker._orgpopup;
-                if(options.showAllPopups){
-                    marker._popup.options.autoClose = false;
+            if(marker instanceof L.LayerGroup){
+                that._openPopups(marker.getLayers());
+            }else {
+                if (marker._orgpopup) {
+                    marker._popup = marker._orgpopup;
+                    if (options.showAllPopups) {
+                        marker._popup.options.autoClose = false;
+                    }
+                    marker.openPopup();
+                } else if (options.popupContent) {
+                    var popupOptions = options.popupOptions;
+                    if (options.showAllPopups) {
+                        popupOptions.autoClose = false;
+                    }
+                    marker.bindPopup(options.popupContent, popupOptions).openPopup();
                 }
-                marker.openPopup();
-            }else if(options.popupContent){
-                var popupOptions = options.popupOptions;
-                if(options.showAllPopups){
-                    popupOptions.autoClose = false;
-                }
-                marker.bindPopup(options.popupContent,popupOptions ).openPopup();
             }
         });
-    }
+    },
 
 });
 
