@@ -95,10 +95,11 @@
         var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
         layer.bindPopup(content, {closeButton: true});
     };
-    $.getJSON("examples/popups.json", function(json) {
-	    L.geoJSON(json, optionsObject1);
 
-    var group1 = L.geoJSON(dataset1, optionsObject1);
+    $.getJSON("examples/popups.json", function(json) {
+	    var group1 = L.geoJSON(dataset1, optionsObject1);
+
+//    var group1 = L.geoJSON(dataset1, optionsObject1);
 //    var marker1 = L.marker([40.75,-73.85], {time: '1992/02'});
 //    marker1.addTo(group1);
 
