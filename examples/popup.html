@@ -40,7 +40,7 @@
 
 <script>
     // Create geoJSON dataset (if linking mulitple markers together to appear/hide at once, all those linked go into one dataset)
-    /*var dataset1 = [
+    var dataset1 = [
         {
             type: 'Feature',
             geometry: {
@@ -62,7 +62,7 @@
             properties: {
                 title: 'Popup 2',
                 description: 'Hello again, World!',
-                time: '1992/07'
+                time: '1992/06'
             }
         },
         {
@@ -74,10 +74,10 @@
             properties: {
                 title: 'Popup 3',
                 description: 'Hello once again, World!',
-                time: '1992/06'
+                time: '1992/07'
             }
         }
-    ];*/
+    ];
 
     // Create map inside div with #myMap ID; set view
     var map1 = L.map('myMap').setView([40.7,-73.9], 11);
@@ -94,19 +94,16 @@
     function onEachFeature (feature, layer) {
         var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
         layer.bindPopup(content, {closeButton: true});
-    };
+    }
 
-    $.getJSON("popups.json", function(json) {
-	    var group1 = L.geoJSON(json, optionsObject1);
-
-//    var group1 = L.geoJSON(dataset1, optionsObject1);
-//    var marker1 = L.marker([40.75,-73.85], {time: '1992/02'});
-//    marker1.addTo(group1);
+    var group1 = L.geoJSON(dataset1, optionsObject1);
+    var marker1 = L.marker([40.75,-73.85], {time: '1992/08'});
+    marker1.addTo(group1);
 
     var sliderControl1 = L.control.sliderControl( {
         layer: group1,
         alwaysShowDate: true,
-        popupContent: 'Hello World', //Custom Popup content if marker has no popup
+        popupContent: 'Hello World', //Custom Popupcontent if marker has no popup
         popupOptions: {closeOnClick: false}, //Popup options for markers with no default popup
         showAllPopups: false, // to show all popups, instead of one, same as popup option "autoClose: false"
         showPopups: true
@@ -117,7 +114,7 @@
 
     // Initialize the slider
     sliderControl1.startSlider();
-});
+
 </script>
 </body>
 
