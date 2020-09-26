@@ -40,7 +40,7 @@
 
 <script>
     // Create geoJSON dataset (if linking mulitple markers together to appear/hide at once, all those linked go into one dataset)
-    var dataset1 = [
+    /*var dataset1 = [
         {
             type: 'Feature',
             geometry: {
@@ -77,7 +77,7 @@
                 time: '1992/06'
             }
         }
-    ];
+    ];*/
 
     // Create map inside div with #myMap ID; set view
     var map1 = L.map('myMap').setView([40.7,-73.9], 11);
@@ -95,10 +95,12 @@
         var content = "<div style='clear: both'></div><div><h4>" + feature.properties.title + "</h4><p>" + feature.properties.time + "</p><p>" + feature.properties.description + "</p></div>";
         layer.bindPopup(content, {closeButton: true});
     };
+    $.getJSON("examples/popups.json", function(json) {
+	    L.geoJSON(json, optionsObject1);
 
     var group1 = L.geoJSON(dataset1, optionsObject1);
-    var marker1 = L.marker([40.75,-73.85], {time: '1992/02'});
-    marker1.addTo(group1);
+//    var marker1 = L.marker([40.75,-73.85], {time: '1992/02'});
+//    marker1.addTo(group1);
 
     var sliderControl1 = L.control.sliderControl( {
         layer: group1,
