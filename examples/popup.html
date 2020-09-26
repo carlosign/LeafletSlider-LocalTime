@@ -97,13 +97,13 @@
     }
 
     var group1 = L.geoJSON(dataset1, optionsObject1);
-    var marker1 = L.marker([40.75,-73.85], {time: '1992/08'});
+    var marker1 = L.marker([40.75,-73.85], {time: '1992/02'});
     marker1.addTo(group1);
 
     var sliderControl1 = L.control.sliderControl( {
         layer: group1,
         alwaysShowDate: true,
-        popupContent: 'Hello World', //Custom Popupcontent if marker has no popup
+        popupContent: 'Hello World', //Custom Popup content if marker has no popup
         popupOptions: {closeOnClick: false}, //Popup options for markers with no default popup
         showAllPopups: false, // to show all popups, instead of one, same as popup option "autoClose: false"
         showPopups: true
