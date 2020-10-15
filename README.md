@@ -5,16 +5,16 @@ The [Leaflet](http://leafletjs.com/) Time-Slider enables you to dynamically add 
 ](http://jqueryui.com/slider/).
 
 
-Check out the [Demo](https://falke-design.github.io/LeafletSlider/)!
+Check out the [Demo](https://geyerbri.github.io/LeafletSlider/)!
 
-With two silders [Epoch.html](https://falke-design.github.io/LeafletSlider/examples/epoch.html)!
+With two silders [Epoch.html](https://geyerbri.github.io/LeafletSlider/examples/epoch.html)!
 
-Popup Demo: [Popup.html](https://falke-design.github.io/LeafletSlider/examples/popup.html)
+Popup Demo: [Popup.html](https://geyerbri.github.io/LeafletSlider/examples/popup.html)
 
 Usage
 -----
 Add:
-* ``SliderControl.js`` [CDN](https://cdn.jsdelivr.net/gh/Falke-Design/LeafletSlider@latest/dist/leaflet.SliderControl.min.js)
+* ``SliderControl.js`` [CDN](https://cdn.jsdelivr.net/gh/geyerbri/LeafletSlider@latest/dist/leaflet.SliderControl.min.js)
 * [JQuery](https://cdnjs.com/libraries/jquery)
 * [JQueryUI](https://cdnjs.com/libraries/jqueryui)
 
@@ -133,3 +133,5 @@ Author
 Dennis Wilhelm, 2013
 
 Updated by @Falke-Design 2020
+
+Further update by Brian Geyer 2020
