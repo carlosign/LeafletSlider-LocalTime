@@ -1,7 +1,7 @@
 {
     "name": "leafletslider2.0",
-    "author": "Falke-Design",
-    "version": "1.0.4",
+    "author": "geyerbri",
+    "version": "1.0.5",
     "description": "The Leaflet Time-Slider enables you to dynamically add and remove Markers on a map by using a JQuery UI slider.",
     "license": "MIT",
     "main": "dist/leaflet.SliderControl.min.js",
@@ -16,7 +16,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Falke-Design/LeafletSlider.git"
+        "url": "https://github.com/geyerbri/LeafletSlider.git"
     },
     "keywords": [
         "map",
