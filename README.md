@@ -11,6 +11,8 @@ With two silders [Epoch.html](https://geyerbri.github.io/LeafletSlider/examples/
 
 Popup Demo: [Popup.html](https://geyerbri.github.io/LeafletSlider/examples/popup.html)
 
+For a step-by-step introductory tutorial, fork [this repo](https://github.com/chi-initiative/LeafletSlider-tutorial) and follow the instructions in README.
+
 Usage
 -----
 Add:
