@@ -1,6 +1,8 @@
 LeafletSlider
 =============
 
+IF YOU USE THIS .JS, you get the date string in local time.
+
 The [Leaflet](http://leafletjs.com/) Time-Slider enables you to dynamically add and remove Markers on a map by using a [JQuery UI slider
 ](http://jqueryui.com/slider/).
 
@@ -137,3 +139,5 @@ Dennis Wilhelm, 2013
 Updated by @Falke-Design 2020
 
 Further update by Brian Geyer 2020
+
+Further update by Carlos Charletti 2024
