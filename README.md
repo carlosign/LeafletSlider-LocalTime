@@ -3,6 +3,8 @@ LeafletSlider
 
 IF YOU USE THIS .JS, you get the date string in local time.
 
+In any case, you have to have the geoJson or in the "time" tag of the marker the date with the format mm/dd/yyyy
+
 The [Leaflet](http://leafletjs.com/) Time-Slider enables you to dynamically add and remove Markers on a map by using a [JQuery UI slider
 ](http://jqueryui.com/slider/).
 
