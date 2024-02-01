@@ -132,6 +132,7 @@ L.Control.SliderControl = L.Control.extend({
         var _options = this.options;
         var _extractTimestamp = this.extractTimestamp;
         var index_start = _options.minValue;
+	var inicio_rango = _options.minValue;
         if(_options.showAllOnStart){
             index_start = _options.maxValue;
             if(_options.range) _options.values = [_options.minValue,_options.maxValue];
@@ -166,7 +167,10 @@ L.Control.SliderControl = L.Control.extend({
                         if(_options.markers [ui.value].options[_options.timeAttribute]){
                             if(_options.markers[ui.value]){
                                 timestampContainer.style.display = "block";
-                                $(timestampContainer).html( _extractTimestamp(_options.markers[ui.value].options[_options.timeAttribute], _options));
+				var iniciorango = _extractTimestamp(_options.markers[ui.values[0]].options[_options.timeAttribute], _options);
+				var finrango = _extractTimestamp(_options.markers[ui.values[1]].options[_options.timeAttribute], _options);
+				console.log(iniciorango + "-" + finrango);
+                                $(timestampContainer).html(iniciorango + " - " + finrango);
                             }
                         }else {
                             console.error("Time property "+ _options.timeAttribute +" not found in data");
@@ -249,7 +253,10 @@ L.Control.SliderControl = L.Control.extend({
                 if(_options.markers [index_start].options[_options.timeAttribute]){
                     if(_options.markers[index_start]){
                         timestampContainer.style.display = "block";
-                        $(timestampContainer).html( _extractTimestamp(_options.markers[index_start].options[_options.timeAttribute], _options));
+			var finrango = _extractTimestamp(_options.markers[index_start].options[_options.timeAttribute], _options);
+			var iniciorango = _extractTimestamp(_options.markers[inicio_rango].options[_options.timeAttribute], _options);
+			console.log(iniciorango + "-" + finrango);
+                        $(timestampContainer).html(iniciorango + " - " + finrango);
                     }
                 }else {
                     console.error("Time property "+ _options.timeAttribute +" not found in data");
@@ -280,8 +287,8 @@ L.Control.SliderControl = L.Control.extend({
         if (options.isEpoch) {
             time = (new Date(parseInt(time))).toString(); // this is local time
         }
-        time = new Date(time).toLocaleString(); //Con esto, se muestra el formato de la fecha en tiempo local. De todas formas el input del marker, debe ser del estilo time: mm/dd/yyyy
-        return time.substr(options.startTimeIdx, options.startTimeIdx + options.timeStrLength);
+	time = new Date(time).toLocaleString(); //Con esto, se muestra el formato de la fecha en tiempo local. De todas formas el input del marker, debe ser del estilo time: mm/dd/yyyy
+        return time.substr(options.startTimeIdx, options.startTimeIdx + options.timeStrLength)
     },
 
     setPosition: function (position) {
