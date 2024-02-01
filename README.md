@@ -1,7 +1,7 @@
 LeafletSlider
 =============
 
-IF YOU USE THIS .JS, you get the date string in local time.
+IF YOU USE THIS .JS, you get the date string in local time and also shows the ranges of dates selected.
 
 In any case, you have to have the geoJson or in the "time" tag of the marker the date with the format mm/dd/yyyy
 
