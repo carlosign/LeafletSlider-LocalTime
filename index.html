@@ -34,58 +34,19 @@
         attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
 
+    //Agregamos marcadores. time tag: mm/dd/yyyy
+    var marcador1 = L.marker([-34.590607, -58.422944], {time: '11/08/2023'}).addTo(myMap);
+    var marcador2 = L.marker([-34.603886, -58.493623], {  time: '12/20/2023'}).addTo(myMap);
+    var marcador3 = L.marker([-34.621747, -58.416518], {time: '12/15/2023'}).addTo(myMap);
+    var marcador4 = L.marker([-34.576273, -58.48965], {time: '12/04/2023'}).addTo(myMap);
+    var marcador5 = L.marker([-34.544648778883, -58.708606345376], {time: '11/23/2023'}).addTo(myMap);
 
-    //Use usual LayerGroups instead of GeoJSON fetched markers
-    /*
-    var marker1 = L.marker([51.933292258, 7.582512743], {time: "2013-01-22 08:42:26+01"});
-    var marker2 = L.marker([51.9, 7.6], {time: "2013-01-22 10:00:26+01"});
-    var marker3 = L.marker([51.7, 7.7], {time: "2013-01-22 10:03:29+01"});
-    
-    var pointA = new L.LatLng(51.8, -0.09);
-    var pointB = new L.LatLng(51.9, -0.2);
-    var pointList = [pointA, pointB];
-
-    var polyline = new L.Polyline(pointList, {
-      time: "2013-01-22 10:24:59+01",
-      color: 'red',
-      weight: 3,
-      opacity: 1,
-      smoothFactor: 1
-    });
-    
-    
-    layerGroup = L.layerGroup([marker1, marker2, marker3, polyline]);
-    var sliderControl = L.control.sliderControl({layer:layerGroup, follow: true});
+    const marcadores = [marcador1, marcador2, marcador3, marcador4, marcador5];
+    layerGroup = L.layerGroup(marcadores);
+    var sliderControl = L.control.sliderControl({layer:layerGroup,position: "topright",range: true,showAllOnStart: true, alwaysShowDate: true,showAllPopups: false, showPopups: false, timeStrLength: 10,});
     myMap.addControl(sliderControl);
-    sliderControl.startSlider();
-  */
+    sliderControl.startSlider(); //Slider muestra dd/mm/yyyy - dd/mm/yyyy
 
-
-    //Fetch some data from a GeoJSON file
-    $.getJSON("examples/points.json", function(json) {
-        var testlayer = L.geoJson(json),
-            sliderControl = L.control.sliderControl({
-                position: "topright",
-                layer: testlayer
-            });
-
-        //For a Range-Slider use the range property:
-        sliderControl = L.control.sliderControl({
-            position: "topright",
-            layer: testlayer,
-            range: true
-        });
-
-
-        sliderControl.on('rangechanged',function (e) {
-            console.log(e.markers)
-        });
-
-        //Make sure to add the slider to the map ;-)
-        myMap.addControl(sliderControl);
-        //And initialize the slider
-        sliderControl.startSlider();
-    });
     </script>
 </body>
 
